@@ -27,6 +27,10 @@
 ## 快速开始
 
 ```bash
+# 安装全部写作技能
+npx skills add skills-repo/writer-studio -g -y
+
+# 或按需安装单个技能
 npx skills add skills-repo/writer-studio@copywriter -g -y
 npx skills add skills-repo/writer-studio@technical-writer -g -y
 npx skills add skills-repo/writer-studio@content-writer -g -y
