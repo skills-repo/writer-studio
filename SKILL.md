@@ -32,8 +32,8 @@ metadata:
 
 | 任务 | 读取 / 调用 | 关键词（grep 线索） |
 |------|------------|---------------------|
-| 写作流程与编辑 | `references/writing-process.md` | 流程, 起草, 编辑, 标题, 结构 |
-| SEO 内容策略 | `references/seo-content-strategy.md` | SEO, 关键词, 信息增益, 结构, 内链 |
+| 写作流程与编辑 | `references/writing-process.md` | 流程, 起草, 编辑, 标题, 结构, 文体, 落地映射 |
+| SEO 内容策略 | `references/seo-content-strategy.md` | SEO, 关键词, 信息增益, 结构, 内链, 自检命令, H1, alt |
 | 短文案（细粒度调用） | `skills/copywriter/SKILL.md` | 文案, 标题, CTA, 着陆页, 邮件 |
 | 技术文章（细粒度调用） | `skills/technical-writer/SKILL.md` | 技术文章, 选题, 结构, 编辑 |
 | 长文内容（细粒度调用） | `skills/content-writer/SKILL.md` | 长文, 博客, 操作指南, 信息增益 |

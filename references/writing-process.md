@@ -21,6 +21,10 @@
 - 制造适度好奇但不变标题党，兑现承诺。
 - 长文标题兼顾关键词（兼顾 SEO）。
 
+> 本节只给**判断标准**（一个标题够不够好）。要现成的**生成公式**别在这里找：
+> 短文案的 6 种标题公式（How to / 数字列表 / 谁+收益 / 问题→方案 / Before→After）见 `skills/copywriter/SKILL.md`；
+> 技术文章的 10 种标题钩子策略见 `skills/technical-writer/SKILL.md`。
+
 ## 3. 编辑清单
 
 - [ ] 每段一个核心意思，无冗余
@@ -36,6 +40,11 @@
 | 短文案 | 一个主张 + 一个 CTA，字字算 ROI |
 | 技术文章 | 问题→方案→证据，可复现 |
 | 长文博客 | 信息增益 + 结构清晰 + 内链 |
+
+**落地映射**（本篇定文体要点 → 子技能出具体产出）：短文案 → `skills/copywriter/SKILL.md`（PAS/AIDA/BAB 框架）；
+技术文章 → `skills/technical-writer/SKILL.md`（7 阶段全流程 + 8 种内容类型模板）；
+长文博客 → `skills/content-writer/SKILL.md`（QAE 模式 + 字数分档）；发布前验收 → `skills/seo-checker/SKILL.md`。
+本流程篇不复制这些框架内容，只负责"什么时候用哪一个"。
 
 ## 5. 常见坑
 
