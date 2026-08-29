@@ -60,3 +60,8 @@ metadata:
 - 数据引用需人工核实
 - 不自动发布或格式化 CMS
 - 短文案场景使用 `copywriter`
+
+## 相关参考（Playbook）
+
+- 通用写作流程、标题打磨、编辑清单与文体要点（决定"什么时候用哪一个框架"）：`../../references/writing-process.md`
+- SEO 信息增益策略与发布前策略层自查（字数分档、内链集群）：`../../references/seo-content-strategy.md`

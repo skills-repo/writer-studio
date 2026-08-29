@@ -58,3 +58,8 @@ metadata:
 - 不生成新内容，仅验证和报告
 - PageSpeed 检查需要额外配置 Google API 凭据
 - 不替代 Google Search Console 的索引状态检查
+
+## 相关参考（Playbook）
+
+- SEO 策略层 playbook（意图对齐、信息增益、内链集群、发布前策略层自查 → 本技能技术层验收）：`../../references/seo-content-strategy.md`
+- 通用写作流程与发布前验收映射：`../../references/writing-process.md`

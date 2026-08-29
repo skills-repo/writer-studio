@@ -56,3 +56,7 @@ metadata:
 - 不适合长篇博客/文章正文（使用 `content-writer`）
 - 不处理 SEO 关键词策略（使用 `seo-checker`）
 - 框架建议需要人类判断确认
+
+## 相关参考（Playbook）
+
+- 通用写作流程与 6 种标题公式（How to / 数字列表 / 谁+收益 / 问题→方案 / Before→After）、编辑清单：`../../references/writing-process.md`
