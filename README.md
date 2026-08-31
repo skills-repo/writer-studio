@@ -51,7 +51,7 @@ writer       writer      checker
 
 | Playbook | 内容 | 何时读 |
 |----------|------|--------|
-| `references/writing-process.md` | 通用写作流程、流程选择决策树、可运行的写作体检命令、量化编辑清单 | 起草/编辑阶段、不确定走哪条流程时 |
+| `references/writing-process.md` | 通用写作流程、流程选择决策树、可运行的写作体检命令（注水词/被动句/句长/段落/篇幅 + 判读阈值表 + 命令盲区表）、量化编辑清单 | 起草/编辑阶段、不确定走哪条流程时、发布前量化体检 |
 | `references/seo-content-strategy.md` | 关键词对齐、信息增益、内容结构、发布前 SEO 策略层自检命令 | 发布前的 SEO 策略层自查（技术层验收交给 `seo-checker`） |
 
 ## 许可

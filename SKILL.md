@@ -33,6 +33,7 @@ metadata:
 | 任务 | 读取 / 调用 | 关键词（grep 线索） |
 |------|------------|---------------------|
 | 写作流程与编辑 | `references/writing-process.md` | 流程, 起草, 编辑, 标题, 结构, 文体, 落地映射 |
+| 稿件量化体检（注水词/被动句/句长/段落） | `references/writing-process.md` §3 | 体检命令, 注水词, 被动语态, 句长, 段落, 阈值表, 盲区 |
 | SEO 内容策略 | `references/seo-content-strategy.md` | SEO, 关键词, 信息增益, 结构, 内链, 自检命令, H1, alt |
 | 短文案（细粒度调用） | `skills/copywriter/SKILL.md` | 文案, 标题, CTA, 着陆页, 邮件 |
 | 技术文章（细粒度调用） | `skills/technical-writer/SKILL.md` | 技术文章, 选题, 结构, 编辑 |

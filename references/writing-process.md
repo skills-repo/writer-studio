@@ -54,41 +54,72 @@ grep -nE "事实上|值得注意的是|总而言之|简单来说|在当今|随�
 ### 3.2 被动语态检测（谁做的动作被藏起来了）
 
 ```bash
-grep -nE "被[一-龥]*(了|过)|由[一-龥]*(进行|完成|实现|处理)" draft.md
+grep -nE "被[一-龥]{0,10}(了|过|完成|实现|处理|加载|创建|删除|更新|执行|调用|返回)|由[一-龥]{0,10}(进行|完成|实现|处理|执行)" draft.md
 ```
 
 有输出 = 被动句，尽量改为主动（"服务器加载配置" 而非 "配置被服务器加载"）。
 
+> 为什么动词表要写全：只查 `被…(了|过)` 会漏掉最常见的一类——"配置被服务器加载"结尾没有
+> "了/过"，正则直接放过，连本节自己举的反面例句都抓不到。`被` 与 `由` 两支必须各带自己的动词表，
+> 不能把动词表只挂在 `由` 上。`[一-龥]{0,10}` 的上限限制施动者长度，避免跨句误命中。
+
 ### 3.3 句子长度 / 可读性估算（Python，无需装包）
+
+> 先剥离标题、代码块、引用、表格与图片语法，再切句。否则 Markdown 结构行会被当成"句子"，
+> 中位数被一堆 2–8 字的标题拉低，`§4` 的"中位 ≤ 40 CJK"这条判据就永远为真、形同没查。
 
 ```bash
 python3 - <<'PY'
 import re, statistics as st
-t = open('draft.md', encoding='utf-8').read()
-sents = [s for s in re.split(r'[。！？\n]', t) if s.strip()]
+FENCE = chr(96) * 3          # 用 chr 拼反引号，避免代码块自我嵌套
+raw = open('draft.md', encoding='utf-8').read()
+raw = re.sub(FENCE + r'.*?' + FENCE, '', raw, flags=re.S)     # 去代码块
+body = '\n'.join(l for l in raw.split('\n')
+                 if not l.lstrip().startswith(('#', '>', '|')))  # 去标题/引用/表格
+body = re.sub(r'!\[[^]]*\]\([^)]*\)', '', body)              # 去图片语法
+sents = [s for s in re.split(r'[。！？；\n]', body)
+         if len(re.findall(r'[一-龥]', s)) >= 4]             # 4 CJK 以下视为碎片
 cjk = [len(re.findall(r'[一-龥]', s)) for s in sents]
-print('句子数=', len(sents),
-      '中位CJK=', int(st.median(cjk)),
-      '最长CJK=', max(cjk),
-      '超长句(>60CJK)=', sum(1 for w in cjk if w > 60))
+if not cjk:
+    print('无可判定正文句子'); raise SystemExit
+longs = [c for c in cjk if c > 60]
+print(f'句子数={len(cjk)} 中位CJK={int(st.median(cjk))} 最长CJK={max(cjk)} '
+      f'超长句(>60CJK)={len(longs)} 占比={len(longs)*100//len(cjk)}%')
 PY
 ```
+
+输出直接给出**超长句占比**，对齐 §3.5 阈值表的 `<10%` 判据，不用自己再算一遍。
 
 ### 3.4 段落结构：一段一意
 
 ```bash
 python3 - <<'PY'
 import re
-t = open('draft.md', encoding='utf-8').read()
-paras = [p for p in t.split('\n\n') if p.strip()]
-for i, p in enumerate(paras, 1):
+FENCE = chr(96) * 3
+raw = open('draft.md', encoding='utf-8').read()
+raw = re.sub(FENCE + r'.*?' + FENCE, '', raw, flags=re.S)
+line_no, paras, cur, start = 0, [], [], 1
+for line in raw.split('\n'):
+    line_no += 1
+    if line.strip():
+        if not cur: start = line_no
+        cur.append(line)
+    elif cur:
+        paras.append((start, '\n'.join(cur))); cur = []
+if cur: paras.append((start, '\n'.join(cur)))
+for ln, p in paras:
+    if p.lstrip().startswith(('#', '>', '|')): continue      # 跳过标题/引用/表格块
+    p = re.sub(r'!\[[^]]*\]\([^)]*\)', '', p)
+    if len(re.findall(r'[一-龥]', p)) < 8: continue           # 跳过图片/链接行
     n = len([s for s in re.split(r'[。！？]', p) if s.strip()])
-    flag = '  ⚠ >5句/段' if n > 5 else ''
-    print(f'段{i}: {n}句{flag}')
+    print(f'L{ln}: {n}句' + ('  ⚠ >5句/段，拆段' if n > 5 else ''))
 PY
 ```
 
 一段超过 5 句，通常塞了多个论点 → 拆段，每段只讲一件事。
+
+> 输出用**行号**而非"段 N"：把标题行、图片行也算作段落时，"段 7" 对不上编辑器里的任何位置，
+> 拿到告警还得回头数一遍。行号可以直接跳过去改。
 
 ### 3.5 篇幅体检
 
@@ -106,6 +137,20 @@ wc -w draft.md   # 英文词数
 | 注水词命中 | 0 | >0 → 逐条删 |
 | 被动句命中 | 0 | >0 → 转主动 |
 | 段落句子数 | 2–5 | >5 → 拆段 |
+
+### 3.6 这些命令查不到什么（别把绿灯当合格）
+
+| 命令 | 抓得到 | 抓不到 | 补救 |
+|------|--------|--------|------|
+| §3.1 注水词 | 固定词表内的表达 | 词表外的新套话、整段废话 | 词表按自己的口头禅扩充 |
+| §3.2 被动语态 | `被/由` + 动词表 | 无标记被动（"问题得到解决"）、英文被动 | 人工过一遍动词是谁做的 |
+| §3.3 句长 | 中文句长分布 | 纯英文稿（CJK 计数为 0 → 全被过滤） | 英文稿改用 `wc -w` 加人工 |
+| §3.4 段落 | 句数超限 | 一段里逻辑跳跃但只有 3 句 | 逻辑连贯性只能人读 |
+| §3.5 篇幅 | 字符/词数 | 内容是否值这个篇幅 | 对照 `content-writer` 字数分档 |
+
+**共同盲区**：全部命令只看**表层形式**，不看论点是否成立、证据是否可信、结论是否有信息增益。
+形式项零告警只说明"没有明显硬伤"，不等于文章好。信息增益判断走
+`references/seo-content-strategy.md` §2，观点与调性由人拍板。
 
 ## 4. 编辑清单（量化版）
 
@@ -143,6 +188,9 @@ wc -w draft.md   # 英文词数
 - **文体误判**：把长文当短文案写 → 结构缺失、信息增益为零；按 §2 决策树先分流。
 - **把润色排在结构前面**：串行逗号这类 polish 会掩盖结构问题——先修 CRITICAL（结构/清晰度），再抠 MEDIUM 细节。
 - **被要求"审"时却重写**：先报 findings + 建议改法，除非对方说"直接改"，否则只评不改。
+- **体检命令没在真稿上验过就信它**：正则和切句逻辑很容易"看起来对、实际全绿"。新增或改动
+  §3 命令后，先拿一份**故意写坏的样稿**（塞注水词、被动句、超长句、6 句大段、缺 alt 图片）跑一遍，
+  确认每条都能被抓出来，再拿它验真稿。参见 §3.6 的盲区表。
 
 ## 7. 边界声明（别重复劳动）
 
