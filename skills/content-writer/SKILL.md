@@ -63,5 +63,5 @@ metadata:
 
 ## 相关参考（Playbook）
 
-- 通用写作流程、标题打磨、编辑清单与文体要点（决定"什么时候用哪一个框架"）：`../../references/writing-process.md`
-- SEO 信息增益策略与发布前策略层自查（字数分档、内链集群）：`../../references/seo-content-strategy.md`
+- 通用写作流程、标题打磨、编辑清单与文体要点（决定"什么时候用哪一个框架"）：[writing-process 流程篇](../../references/writing-process.md)
+- SEO 信息增益策略与发布前策略层自查（字数分档、内链集群）：[seo-content-strategy 策略层](../../references/seo-content-strategy.md)

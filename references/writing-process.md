@@ -21,17 +21,17 @@
 接到写作任务，按文体分流：
 │
 ├─ 短文案（标题/广告语/CTA/着陆页/邮件）？
-│     → 走 skills/copywriter/SKILL.md 的 PAS/AIDA/BAB 框架，不进长流程。
+│     → 走 [copywriter 子技能](../skills/copywriter/SKILL.md) 的 PAS/AIDA/BAB 框架，不进长流程。
 │
 ├─ 技术文章（选题 → 发布全流程）？
-│     → 走 skills/technical-writer/SKILL.md 的 7 阶段全流程。
+│     → 走 [technical-writer 子技能](../skills/technical-writer/SKILL.md) 的 7 阶段全流程。
 │
 ├─ 长文博客 / 操作指南（重信息增益）？
-│     → 走 skills/content-writer/SKILL.md 的 QAE 模式 + 字数分档。
+│     → 走 [content-writer 子技能](../skills/content-writer/SKILL.md) 的 QAE 模式 + 字数分档。
 │
 ├─ 已写完、要发布前验收？
-│     → 先过本篇 §3 体检命令 + references/seo-content-strategy.md 策略层
-│       → 再跑 skills/seo-checker/SKILL.md 技术层 11 项。
+│     → 先过本篇 §3 体检命令 + [seo-content-strategy 策略层](seo-content-strategy.md) 策略层
+│       → 再跑 [seo-checker 技术层](../skills/seo-checker/SKILL.md) 11 项。
 │
 └─ 不确定文体 / 内容散？
       → 用 §3 体检命令量化（句子长度、注水词、段落结构），再按 §5 文体要点校准。
@@ -150,7 +150,7 @@ wc -w draft.md   # 英文词数
 
 **共同盲区**：全部命令只看**表层形式**，不看论点是否成立、证据是否可信、结论是否有信息增益。
 形式项零告警只说明"没有明显硬伤"，不等于文章好。信息增益判断走
-`references/seo-content-strategy.md` §2，观点与调性由人拍板。
+[seo-content-strategy 策略层](seo-content-strategy.md) §2，观点与调性由人拍板。
 
 ## 4. 编辑清单（量化版）
 
@@ -174,9 +174,9 @@ wc -w draft.md   # 英文词数
 | 技术文章 | 问题→方案→证据，可复现 |
 | 长文博客 | 信息增益 + 结构清晰 + 内链 |
 
-**落地映射**（本篇定文体要点 → 子技能出具体产出）：短文案 → `skills/copywriter/SKILL.md`（PAS/AIDA/BAB 框架）；
-技术文章 → `skills/technical-writer/SKILL.md`（7 阶段全流程 + 8 种内容类型模板）；
-长文博客 → `skills/content-writer/SKILL.md`（QAE 模式 + 字数分档）；发布前验收 → `skills/seo-checker/SKILL.md`。
+**落地映射**（本篇定文体要点 → 子技能出具体产出）：短文案 → [copywriter 子技能](../skills/copywriter/SKILL.md)（PAS/AIDA/BAB 框架）；
+技术文章 → [technical-writer 子技能](../skills/technical-writer/SKILL.md)（7 阶段全流程 + 8 种内容类型模板）；
+长文博客 → [content-writer 子技能](../skills/content-writer/SKILL.md)（QAE 模式 + 字数分档）；发布前验收 → [seo-checker 技术层](../skills/seo-checker/SKILL.md)。
 本流程篇不复制这些框架内容，只负责"什么时候用哪一个 + 写完怎么体检"。
 
 ## 6. 常见坑
@@ -198,10 +198,10 @@ wc -w draft.md   # 英文词数
 
 具体产出框架由子技能承担，本篇不复制：
 
-- `skills/copywriter/SKILL.md` — 6 种标题公式、PAS/AIDA/BAB
-- `skills/technical-writer/SKILL.md` — 10 种标题钩子、7 阶段、8 种模板
-- `skills/content-writer/SKILL.md` — QAE 模式、字数分档
-- `skills/seo-checker/SKILL.md` — 发布前 11 项 Pass/Fail 技术验收
-- `references/seo-content-strategy.md` — SEO 策略层（意图对齐 / 信息增益 / 内链集群）
+- [copywriter 子技能](../skills/copywriter/SKILL.md) — 6 种标题公式、PAS/AIDA/BAB
+- [technical-writer 子技能](../skills/technical-writer/SKILL.md) — 10 种标题钩子、7 阶段、8 种模板
+- [content-writer 子技能](../skills/content-writer/SKILL.md) — QAE 模式、字数分档
+- [seo-checker 技术层](../skills/seo-checker/SKILL.md) — 发布前 11 项 Pass/Fail 技术验收
+- [seo-content-strategy 策略层](seo-content-strategy.md) — SEO 策略层（意图对齐 / 信息增益 / 内链集群）
 
 顺序：先过本篇流程与体检 → 再跑 seo-content-strategy 策略层 → 最后 seo-checker 技术层。三层各管一段，不重叠。

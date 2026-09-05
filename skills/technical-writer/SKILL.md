@@ -63,4 +63,4 @@ metadata:
 
 ## 相关参考（Playbook）
 
-- 通用写作流程与 10 种技术文章标题钩子策略、文体要点：`../../references/writing-process.md`
+- 通用写作流程与 10 种技术文章标题钩子策略、文体要点：[writing-process 流程篇](../../references/writing-process.md)

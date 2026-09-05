@@ -36,7 +36,7 @@ H1 含主关键词
 
 > **层次边界（别重复劳动）**：本清单是**策略层**自查——意图对齐、信息增益、内链集群这类"要不要改角度"的判断。
 > **技术层**的发布前 11 项 Pass/Fail 验收（title tag 截断韧性、meta description 长度、H 层级跳级、OG 标签、结构化数据、链接审计）
-> 由子技能 `skills/seo-checker/SKILL.md` 承担，本篇不复制其条目。顺序：先过本篇策略层 → 再跑 seo-checker 技术层。
+> 由子技能 [seo-checker 技术层](../skills/seo-checker/SKILL.md) 承担，本篇不复制其条目。顺序：先过本篇策略层 → 再跑 seo-checker 技术层。
 
 - [ ] 主关键词在 H1 与导语出现
 - [ ] 标题/元描述含利益点且不过长

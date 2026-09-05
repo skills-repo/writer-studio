@@ -61,5 +61,5 @@ metadata:
 
 ## 相关参考（Playbook）
 
-- SEO 策略层 playbook（意图对齐、信息增益、内链集群、发布前策略层自查 → 本技能技术层验收）：`../../references/seo-content-strategy.md`
-- 通用写作流程与发布前验收映射：`../../references/writing-process.md`
+- SEO 策略层 playbook（意图对齐、信息增益、内链集群、发布前策略层自查 → 本技能技术层验收）：[seo-content-strategy 策略层](../../references/seo-content-strategy.md)
+- 通用写作流程与发布前验收映射：[writing-process 流程篇](../../references/writing-process.md)

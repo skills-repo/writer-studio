@@ -59,4 +59,4 @@ metadata:
 
 ## 相关参考（Playbook）
 
-- 通用写作流程与 6 种标题公式（How to / 数字列表 / 谁+收益 / 问题→方案 / Before→After）、编辑清单：`../../references/writing-process.md`
+- 通用写作流程与 6 种标题公式（How to / 数字列表 / 谁+收益 / 问题→方案 / Before→After）、编辑清单：[writing-process 流程篇](../../references/writing-process.md)
